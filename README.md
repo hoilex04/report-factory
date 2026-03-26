@@ -329,10 +329,21 @@ evidence_links: [[EAI-E-20260224-01]]
 
 ### WeChat RSS
 
+Using `wewerss` to build WeChat RSS feed:
+
 ```bash
-# Install WeChat MCP
-git clone https://github.com/hoilex04/weixin-read-mcp
-python server.py
+# Your wewerss instance endpoint
+# Example: http://localhost:4000/feeds/all.atom
+```
+
+**Config:** Update `config.json` with your wewerss endpoint:
+```json
+{
+  "autoHarvest": {
+    "wechat": true
+  },
+  "wechatEndpoint": "http://localhost:4000/feeds/all.atom"
+}
 ```
 
 ### Obsidian RSS Dashboard
