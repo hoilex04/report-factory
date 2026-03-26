@@ -4,11 +4,105 @@
 [![Obsidian](https://img.shields.io/badge/Obsidian-1.x-purple.svg)](https://obsidian.md)
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
 
+**[中文介绍](#中文介绍)** | **[English](#english-introduction)**
+
+---
+
+## 中文介绍
+
+**将任何技术内容转化为标准化的 Obsidian 知识卡片。**
+
+Report Factory 是一个通用的知识卡片生成器，专为追踪快速发展的领域的研究人员和分析师而构建。定义你自己的研究领域，设置自定义关键词，让 AI 自动从论文、文章和 RSS 订阅源中提取证据。
+
+![Report Factory 工作流](assets/workflow.png)
+
+### ✨ 核心特性
+
+- **🎯 自定义领域** — 用关键词定义你的研究领域（AI、生物医疗、气候科技或任何领域）
+- **🤖 自动领域检测** — 根据配置的关键词智能路由
+- **📇 双卡片类型** — Evidence（技术数据）和 Arguments（趋势分析）
+- **🔍 去重检测** — URL/ID 匹配 + 85% 标题相似度检查
+- **✅ 质量门控** — 7 点验证确保证卡质量
+- **📊 PPT/Canvas 导出** — 麦肯锡风格演示文稿 + Obsidian Canvas 可视化
+- **📡 RSS 集成** — 微信、arXiv、博客仪表板自动收割
+
+### 🎯 适用人群
+
+| 用户类型 | 使用场景 |
+|----------|----------|
+| **研究人员** | 追踪领域最新进展，自动提取关键数据 |
+| **分析师** | 生成行业调研报告，快速产出洞察 |
+| **学生** | 整理文献笔记，构建个人知识库 |
+| **技术爱好者** | 收藏高质量文章，结构化存储 |
+
+### 📦 预配置领域包
+
+| 包名 | 领域 | 适用人群 |
+|------|------|----------|
+| **AI Research** | 具身智能、AI 硬件、多模态、认知 AI、智能体 | AI 研究者、工程师 |
+| **Bio/Medical** | 药物发现、基因组学、医学影像、临床 AI | 生物医学研究者 |
+| **Climate Tech** | 可再生能源、碳捕获、电池技术、气候模型 | 气候科技从业者 |
+
+### 🚀 快速开始
+
+```bash
+# 克隆仓库
+git clone https://github.com/hoilex04/report-factory.git
+cd report-factory
+
+# 安装依赖
+pip install -r requirements.txt
+
+# 交互式领域设置
+python -m report_factory setup
+```
+
+### 常用命令
+
+```bash
+# 处理单篇文章
+rf process https://arxiv.org/abs/2602.12345
+
+# 批量收割
+rf harvest wechat    # 微信 RSS
+rf harvest arxiv     # arXiv 论文
+
+# 分析模式
+rf analyze "端侧 AI 部署趋势"
+```
+
+### 卡片示例
+
+**Evidence 卡片（论据卡）**：
+```markdown
+# EAI - Spirit v1.5: 首个超越π0.5 的中国开源 VLA
+
+> [!abstract] 核心观点
+> 千寻智能发布 Spirit v1.5，首个在 Flow Matching 架构上超越π0.5 的中国开源 VLA 模型。
+
+> [!note] 定量数据
+> - **推理延迟**: 150ms (vs π0.5 的 180ms)
+> - **零样本成功率**: 50% 跨具身迁移
+> - **训练效率**: 5×提升
+```
+
+**Arguments 卡片（论点卡）**：
+```markdown
+# AIH - 端侧 AI 部署：2026 年技术收敛
+
+> [!abstract] 核心论点
+> 2026 年上半年端侧 AI 部署出现三大收敛信号：1bit 量化实用化、消费级显卡可运行 7B 模型、推理成本降至云端 1/10。
+```
+
+---
+
+## English Introduction
+
 **Transform any technical content into standardized knowledge cards for Obsidian.**
 
 Report Factory is a universal knowledge card generator built for researchers and analysts tracking fast-moving fields. Define your own research domains, set custom keywords, and let AI automatically extract evidence from papers, articles, and RSS feeds.
 
-![Report Factory Workflow](assets/workflow.png)
+---
 
 ---
 
