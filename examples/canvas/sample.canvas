@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "name": "Report Factory Sample Canvas",
+  "description": "Example Obsidian Canvas showing Evidence and Arguments node relationships",
+  "nodes": [
+    {
+      "id": "root",
+      "type": "text",
+      "text": "# Edge AI Deployment: 2026 Convergence\n\nThree signals mark the inflection point:\n1-bit quantization, consumer GPU deployment, 1/10 cloud cost",
+      "x": 0,
+      "y": -100,
+      "width": 400,
+      "height": 120,
+      "color": "1"
+    },
+    {
+      "id": "arg1",
+      "type": "text",
+      "text": "## Quantization Breakthrough\n\n1-bit PTQ viable with <5% loss",
+      "x": -200,
+      "y": 50,
+      "width": 200,
+      "height": 100,
+      "color": "2"
+    },
+    {
+      "id": "arg2",
+      "type": "text",
+      "text": "## Deployment Simplicity\n\n5-min setup, 250M params, 10Hz",
+      "x": 0,
+      "y": 50,
+      "width": 200,
+      "height": 100,
+      "color": "2"
+    },
+    {
+      "id": "arg3",
+      "type": "text",
+      "text": "## Cost Inflection\n\n1/10 cloud cost with RTX 5090",
+      "x": 200,
+      "y": 50,
+      "width": 200,
+      "height": 100,
+      "color": "2"
+    },
+    {
+      "id": "ev1",
+      "type": "text",
+      "text": "HBVLA 1-bit PTQ\nMemory: 30%, Loss: <5%\n[[AIH-E-20260226-08]]",
+      "x": -250,
+      "y": 200,
+      "width": 150,
+      "height": 80,
+      "color": "3"
+    },
+    {
+      "id": "ev2",
+      "type": "text",
+      "text": "StarSea G0\n250M params, 10Hz\n[[AIH-E-20260213-05]]",
+      "x": -50,
+      "y": 200,
+      "width": 150,
+      "height": 80,
+      "color": "3"
+    },
+    {
+      "id": "ev3",
+      "type": "text",
+      "text": "Spirit v1.5\nReal-time edge VLA\n[[EAI-E-20260224-01]]",
+      "x": 150,
+      "y": 200,
+      "width": 150,
+      "height": 80,
+      "color": "3"
+    }
+  ],
+  "edges": [
+    {"fromNode": "root", "fromSide": "bottom", "toNode": "arg1", "toSide": "top"},
+    {"fromNode": "root", "fromSide": "bottom", "toNode": "arg2", "toSide": "top"},
+    {"fromNode": "root", "fromSide": "bottom", "toNode": "arg3", "toSide": "top"},
+    {"fromNode": "arg1", "fromSide": "bottom", "toNode": "ev1", "toSide": "top"},
+    {"fromNode": "arg2", "fromSide": "bottom", "toNode": "ev2", "toSide": "top"},
+    {"fromNode": "arg3", "fromSide": "bottom", "toNode": "ev3", "toSide": "top"}
+  ]
+}

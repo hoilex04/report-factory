@@ -1,0 +1,43 @@
+{
+  "name": "Bio/Medical",
+  "description": "AI applications in drug discovery, genomics, medical imaging, and clinical AI",
+  "domains": {
+    "DRUG": {
+      "name": "Drug Discovery",
+      "keywords": [
+        "Drug Design", "Molecular", "Binding Affinity", "Screening",
+        "ADMET", "Virtual Screening", "De Novo Design", "Docking"
+      ],
+      "color": "#0099CC",
+      "metrics": ["binding_affinity_nM", "IC50", "ADMET_score", "docking_score"]
+    },
+    "GENO": {
+      "name": "Genomics",
+      "keywords": [
+        "Sequencing", "Genome", "CRISPR", "Gene Expression",
+        "RNA-seq", "Variant Calling", "Epigenetics", "NGS"
+      ],
+      "color": "#00CC99",
+      "metrics": ["sequencing_depth", "accuracy", "coverage", "F1_score"]
+    },
+    "MIMG": {
+      "name": "Medical Imaging",
+      "keywords": [
+        "MRI", "CT", "Radiology", "Pathology", "Segmentation",
+        "Detection", "Classification", "Ultrasound", "X-Ray"
+      ],
+      "color": "#CC9900",
+      "metrics": ["dice_score", "sensitivity", "specificity", "AUC"]
+    },
+    "CLIN": {
+      "name": "Clinical AI",
+      "keywords": [
+        "EHR", "Diagnosis", "Prognosis", "Clinical Trial",
+        "Risk Prediction", "Treatment Recommendation", "EMR"
+      ],
+      "color": "#9933CC",
+      "metrics": ["accuracy", "precision", "recall", "calibration"]
+    }
+  },
+  "priority": ["DRUG", "MIMG", "CLIN", "GENO"]
+}

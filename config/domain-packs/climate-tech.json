@@ -1,0 +1,43 @@
+{
+  "name": "Climate Tech",
+  "description": "Renewable energy, carbon capture, battery technology, and climate modeling",
+  "domains": {
+    "REN": {
+      "name": "Renewable Energy",
+      "keywords": [
+        "Solar", "Wind", "Hydro", "Geothermal", "Energy Storage",
+        "Photovoltaic", "Turbine", "Offshore Wind"
+      ],
+      "color": "#FFCC00",
+      "metrics": ["efficiency_pct", "capacity_MW", "LCOE", "capacity_factor"]
+    },
+    "CARB": {
+      "name": "Carbon Capture",
+      "keywords": [
+        "CCS", "Direct Air Capture", "Carbon Sequestration",
+        "CO2 Capture", "Mineralization", "DAC"
+      ],
+      "color": "#669933",
+      "metrics": ["capture_rate", "cost_per_ton", "capacity_tpy"]
+    },
+    "BATT": {
+      "name": "Battery Technology",
+      "keywords": [
+        "Li-ion", "Solid State", "Energy Density", "BMS",
+        "Cathode", "Anode", "Electrolyte", "Sodium-ion"
+      ],
+      "color": "#3366CC",
+      "metrics": ["energy_density_Wh_kg", "cycle_life", "charge_rate", "cost_kWh"]
+    },
+    "CLIM": {
+      "name": "Climate Modeling",
+      "keywords": [
+        "Climate Simulation", "Weather Prediction", "Risk Model",
+        "Earth System", "Downscaling", "GCM"
+      ],
+      "color": "#339999",
+      "metrics": ["resolution_km", "accuracy", "lead_time", "RMSE"]
+    }
+  },
+  "priority": ["BATT", "REN", "CARB", "CLIM"]
+}
