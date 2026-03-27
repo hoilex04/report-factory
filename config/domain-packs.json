@@ -1,0 +1,160 @@
+{
+  "domain_packs": {
+    "ai_research": {
+      "name": "AI Research",
+      "description": "Artificial Intelligence research domains",
+      "domains": {
+        "EAI": {
+          "name": "Embodied AI",
+          "description": "Robotics, manipulation, and physical AI systems",
+          "keywords": [
+            "Robot", "Manipulator", "VLA", "Vision-Language-Action",
+            "Grasp", "Navigation", "Locomotion", "Embodiment",
+            "Physical AI", "Humanoid", "Bipedal", "Mobile Robot"
+          ],
+          "color": "#0066CC",
+          "metrics": ["latency", "success_rate", "throughput", "efficiency"]
+        },
+        "AIH": {
+          "name": "AI Hardware",
+          "description": "AI chips, edge computing, and hardware optimization",
+          "keywords": [
+            "NPU", "Chip", "AI PC", "Edge Computing", "Hardware",
+            "Sensor", "Quantization", "On-device", "Inference optimization",
+            "RTX", "GPU", "TPU", "Memory bandwidth", "Power efficiency"
+          ],
+          "color": "#FF6600",
+          "metrics": ["fps", "latency", "power", "memory"]
+        },
+        "MM": {
+          "name": "Multimodal",
+          "description": "Vision-language, audio, and cross-modal learning",
+          "keywords": [
+            "Vision-Language", "Audio", "Video", "Cross-modal",
+            "CLIP", "Multimodal", "Speech", "Sound", "Image-text",
+            "Video understanding", "Audio-language"
+          ],
+          "color": "#9933CC",
+          "metrics": ["accuracy", "retrieval_score", "generation_quality"]
+        },
+        "COG": {
+          "name": "Cognitive AI",
+          "description": "Reasoning, planning, and knowledge systems",
+          "keywords": [
+            "Reasoning", "Planning", "Memory", "Knowledge Graph",
+            "CoT", "Chain-of-Thought", "Logic", "Problem-solving",
+            "Inference", "Deduction", "Causal reasoning"
+          ],
+          "color": "#009933",
+          "metrics": ["accuracy", "coverage", "reasoning_steps"]
+        },
+        "AGT": {
+          "name": "Agent",
+          "description": "Autonomous agents and multi-agent systems",
+          "keywords": [
+            "Agent", "Autonomous Agent", "Multi-Agent", "Tool Use",
+            "ReAct", "Function Calling", "AI Agent", "AutoGPT",
+            "Task planning", "API calling", "MCP"
+          ],
+          "color": "#CC0066",
+          "metrics": ["task_success", "tool_accuracy", "efficiency"]
+        }
+      }
+    },
+    "bio_medical": {
+      "name": "Bio/Medical",
+      "description": "Biomedical and healthcare research",
+      "domains": {
+        "DRUG": {
+          "name": "Drug Discovery",
+          "description": "Computational drug design and screening",
+          "keywords": [
+            "Drug Design", "Molecular", "Binding", "Screening",
+            "Pharmacology", "Therapeutics", "Drug discovery",
+            "Molecular docking", "Virtual screening"
+          ],
+          "color": "#00CCCC",
+          "metrics": ["binding_affinity", "selectivity", "toxicity"]
+        },
+        "GENO": {
+          "name": "Genomics",
+          "description": "Genomic analysis and editing",
+          "keywords": [
+            "Sequencing", "Genome", "CRISPR", "Gene Expression",
+            "Genomics", "DNA", "RNA", "Single-cell", "Transcriptomics"
+          ],
+          "color": "#CC9900",
+          "metrics": ["accuracy", "coverage", "variant_detection"]
+        },
+        "MIMG": {
+          "name": "Medical Imaging",
+          "description": "Medical image analysis and diagnosis",
+          "keywords": [
+            "MRI", "CT", "Radiology", "Pathology", "Ultrasound",
+            "Medical scan", "Medical imaging", "Diagnostic imaging"
+          ],
+          "color": "#FF3399",
+          "metrics": ["dice_score", "sensitivity", "specificity"]
+        },
+        "CLIN": {
+          "name": "Clinical AI",
+          "description": "Clinical decision support and healthcare AI",
+          "keywords": [
+            "EHR", "Diagnosis", "Prognosis", "Clinical Trial",
+            "Healthcare AI", "Patient data", "Clinical decision support"
+          ],
+          "color": "#33CCFF",
+          "metrics": ["auc_roc", "sensitivity", "specificity"]
+        }
+      }
+    },
+    "climate_tech": {
+      "name": "Climate Tech",
+      "description": "Climate technology and sustainability",
+      "domains": {
+        "REN": {
+          "name": "Renewable Energy",
+          "description": "Solar, wind, and clean energy technologies",
+          "keywords": [
+            "Solar", "Wind", "Hydro", "Geothermal", "Storage",
+            "Clean energy", "Renewable", "Photovoltaic", "Turbine"
+          ],
+          "color": "#66CC33",
+          "metrics": ["efficiency", "capacity_factor", "cost_per_mwh"]
+        },
+        "CARB": {
+          "name": "Carbon Capture",
+          "description": "Carbon capture and sequestration",
+          "keywords": [
+            "CCS", "Direct Air Capture", "Sequestration",
+            "Carbon removal", "CCUS", "Carbon negative"
+          ],
+          "color": "#3366CC",
+          "metrics": ["capture_rate", "cost_per_ton", "energy_penalty"]
+        },
+        "BATT": {
+          "name": "Battery",
+          "description": "Battery technology and energy storage",
+          "keywords": [
+            "Li-ion", "Solid State", "Energy Density",
+            "Battery tech", "Energy storage", "Cathode", "Anode"
+          ],
+          "color": "#CC3366",
+          "metrics": ["energy_density", "cycle_life", "charging_rate"]
+        },
+        "CLIM": {
+          "name": "Climate Modeling",
+          "description": "Climate simulation and prediction",
+          "keywords": [
+            "Simulation", "Weather Prediction", "Climate risk",
+            "Forecasting", "Climate model", "Earth system"
+          ],
+          "color": "#66CCCC",
+          "metrics": ["forecast_accuracy", "spatial_resolution", "temporal_range"]
+        }
+      }
+    }
+  },
+  "default_pack": "ai_research",
+  "version": "2.0"
+}
