@@ -1,4 +1,4 @@
-[English](README.md) | **中文**
+[English](README.en.md) | **中文**
 
 # Report Factory — 知识卡片工厂
 
