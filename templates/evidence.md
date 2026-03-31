@@ -1,42 +1,29 @@
-# Report Factory - Evidence Card Template
-
 ---
-uid: [DOMAIN]-E-YYYYMMDD-01
+uid: {{domain}}-E-{{date_id}}-{{sequence}}
 card_type: Evidence
-domain: [Domain Name]
-tags: [keyword1, keyword2, keyword3]
-date: YYYY-MM-DD
-source: [URL]
+domain: {{domain}}
+tags: [{{tags}}]
+date: {{date}}
+source: {{source}}
 ---
+# {{title}}
 
-# [DOMAIN] - [Topic]: [Core Insight]
+> [!abstract] 核心观点
+> {{core_insight}}
 
-> [!abstract] Core Insight
-> [2-3 sentences summarizing: team/institution + core innovation + key data + technical breakthrough, 80-120 characters]
+> [!note] 定量数据
+{{quantitative_data}}
 
-> [!note] Quantitative Data
-> - **Metric 1**: value (context/baseline)
-> - **Metric 2**: value (context/baseline)
-> - **Metric 3**: value (context/baseline)
-> - **Metric 4**: value (context/baseline)
-> - **Metric 5**: value (context/baseline)
+> [!success] 关键突破
+{{key_breakthroughs}}
 
-> [!success] Key Breakthroughs
-> 1. **Breakthrough 1**: Detailed description of technical innovation and implementation
-> 2. **Breakthrough 2**: Detailed description of technical innovation and implementation
-> 3. **Breakthrough 3**: Detailed description of technical innovation and implementation
-> 4. **Breakthrough 4**: Detailed description of technical innovation and implementation
-> 5. **Breakthrough 5**: Detailed description of technical innovation and implementation
+> [!info] 技术亮点
+- **核心架构**: {{architecture}}
+- **团队**: {{team}}
+- **应用场景**: {{applications}}
+- **基座模型**: {{base_model}}
 
-> [!info] Technical Highlights
-> - **Highlight 1**: Brief description
-> - **Highlight 2**: Brief description
-> - **Highlight 3**: Brief description
-> - **Highlight 4**: Brief description
-> - **Ecosystem**: Partners/community impact
-
-> [!quote] Sources
-> - Paper: [paper link]
-> - Code: [GitHub link]
-> - Project: [project link]
-> - Original: [original URL]
+> [!quote] 来源
+- {{institution}}
+- 论文：{{source}}
+- 原文链接：{{source}}

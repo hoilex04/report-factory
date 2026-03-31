@@ -4,6 +4,9 @@ __pycache__/
 *$py.class
 *.so
 .Python
+env/
+venv/
+ENV/
 build/
 develop-eggs/
 dist/
@@ -21,31 +24,26 @@ wheels/
 *.egg
 
 # Virtual environments
-venv/
-env/
-ENV/
+.env
 .venv
+env/
+venv/
 
-# IDE
+# IDEs
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Project specific
-*.log
-*.tmp
-config/user-config.json
-*.pptx
-*.pdf
-
-# Test
-.pytest_cache/
-.coverage
-htmlcov/
-*.cover
-
 # OS
 .DS_Store
 Thumbs.db
+
+# Project specific
+~/.report-factory/
+*.log
+*.tmp
+output/
+cards/
+master_index.json

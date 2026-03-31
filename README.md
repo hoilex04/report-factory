@@ -1,276 +1,315 @@
-# Report Factory
+[English](README.en.md) | **中文**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Obsidian](https://img.shields.io/badge/Obsidian-1.x-purple.svg)](https://obsidian.md)
-[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
+# Report Factory — 知识卡片工厂
 
-**[中文介绍](#中文介绍)** | **[English](#english-introduction)**
+> **追踪信息，沉淀知识** —— 将零散的技术内容转化为结构化的 Obsidian 知识卡片
+
+**核心理念：** 不是简单的剪藏，而是**可复用的知识沉淀**。让每一篇论文、每一篇文章都能转化为可关联、可溯源、可复用的知识单元。
 
 ---
 
-## 中文介绍
+## 你会得到什么
 
-**将任何技术内容转化为标准化的 Obsidian 知识卡片。**
+Report Factory 是一个 Claude Code 技能，帮你建立**个人知识管理系统**：
 
-Report Factory 是一个通用的知识卡片生成器，专为追踪快速发展的领域的研究人员和分析师而构建。定义你自己的研究领域，设置自定义关键词，让 AI 自动从论文、文章和 RSS 订阅源中提取证据。
+- 📄 **标准化知识卡片** —— 统一格式的 Evidence（证据卡）和 Arguments（论证卡）
+- 🔗 **双向链接网络** —— 卡片之间自动关联，形成知识图谱
+- 📊 **定量数据提取** —— 自动提取论文中的关键指标、实验数据
+- 🏷️ **智能领域分类** —— 基于关键词自动识别研究领域
+- 🔄 **RSS 自动收割** —— WeChat、arXiv、博客一站式采集
+- ✅ **质量门禁** —— 7 点检查确保卡片质量
 
-![Report Factory 工作流](assets/workflow.png)
+所有卡片存储在你本地的 Obsidian 中，**数据完全属于你自己**。
 
-### ✨ 核心特性
+---
 
-- **🎯 自定义领域** — 用关键词定义你的研究领域（AI、生物医疗、气候科技或任何领域）
-- **🤖 自动领域检测** — 根据配置的关键词智能路由
-- **📇 双卡片类型** — Evidence（技术数据）和 Arguments（趋势分析）
-- **🔍 去重检测** — URL/ID 匹配 + 85% 标题相似度检查
-- **✅ 质量门控** — 7 点验证确保证卡质量
-- **📊 PPT/Canvas 导出** — 麦肯锡风格演示文稿 + Obsidian Canvas 可视化
-- **📡 RSS 集成** — 微信、arXiv、博客仪表板自动收割
+## 快速开始
 
-### 🎯 适用人群
-
-| 用户类型 | 使用场景 |
-|----------|----------|
-| **研究人员** | 追踪领域最新进展，自动提取关键数据 |
-| **分析师** | 生成行业调研报告，快速产出洞察 |
-| **学生** | 整理文献笔记，构建个人知识库 |
-| **技术爱好者** | 收藏高质量文章，结构化存储 |
-
-### 📦 预配置领域包
-
-| 包名 | 领域 | 适用人群 |
-|------|------|----------|
-| **AI Research** | 具身智能、AI 硬件、多模态、认知 AI、智能体 | AI 研究者、工程师 |
-| **Bio/Medical** | 药物发现、基因组学、医学影像、临床 AI | 生物医学研究者 |
-| **Climate Tech** | 可再生能源、碳捕获、电池技术、气候模型 | 气候科技从业者 |
-
-### 🚀 快速开始
+### 1. 安装
 
 ```bash
-# 克隆仓库
-git clone https://github.com/hoilex04/report-factory.git
-cd report-factory
-
-# 安装依赖
-pip install -r requirements.txt
-
-# 交互式领域设置
-python -m report_factory setup
+git clone https://github.com/hoilex04/report-factory.git ~/.claude/skills/report-factory
 ```
 
-### 常用命令
+### 2. 初始化设置
+
+在 Claude Code 中输入：
+
+```
+/setup domains
+```
+
+Agent 会以对话方式引导你完成：
+
+- 选择领域包（AI 研究、生物医药、气候科技等）
+- 自定义关键词
+- 设置卡片输出路径
+- 配置 RSS 源
+
+**无需手动编辑配置文件**。
+
+### 3. 开始使用
 
 ```bash
-# 处理单篇文章
-rf process https://arxiv.org/abs/2602.12345
+# 处理单篇论文
+/process https://arxiv.org/abs/2602.12345
 
-# 批量收割
-rf harvest wechat    # 微信 RSS
-rf harvest arxiv     # arXiv 论文
+# 批量收割 RSS
+/harvest wechat --days 7
+/harvest arxiv --limit 30
 
-# 分析模式
-rf analyze "端侧 AI 部署趋势"
+# 深度分析主题
+/analyze "端侧 AI 部署趋势"
 ```
 
-### 卡片示例
+设置完成后，你的第一张知识卡片会立即生成。
 
-以下是来自真实用户 Obsidian 库的 Evidence 卡片示例：
+---
 
-**Evidence 卡片（论据卡）**：
+## 两种卡片类型
+
+### Evidence Card — 证据卡
+
+用于**技术论文、实验数据、产品发布**等包含具体信息的内容。
+
 ```markdown
 ---
-uid: EAI-E-20260310-57
+uid: EAI-E-20260224-01
 card_type: Evidence
 domain: Embodied-AI
-tags: [VLA，可观测性，可控性，线性表征，斯坦福大学]
-date: 2026-03-10
-source: https://arxiv.org/search/?query=observing+controlling+VLA+Stanford&searchtype=title
+tags: [VLA, FlowMatching, Quantization]
+date: 2026-02-24
+source: https://arxiv.org/abs/2602.xxxxx
 ---
 
-# EAI - VLA 可观测与可控框架：无需微调的实时精准控制
+# EAI - Spirit v1.5: 首个超越 π0.5 的开源中文 VLA
 
-> [!abstract] 核心观点
-> 斯坦福大学与英伟达联合提出可观测与可控的 VLA 模型框架，通过线性观测器读取模型内部表征，并利用最小干预控制器精准修正机器人行为。在 Libero 模拟器和 BridgeData V2 数据集上实现了无需微调的实时行为对齐，约束满足率提升至近乎完美，同时保持了 90% 以上的原始任务成功率。
+> [!abstract] 核心洞察
+> 千寻智能发布 Spirit v1.5，首个在 Flow Matching 架构上超越 Physical Intelligence π0.5 的中文开源 VLA 模型...
 
 > [!note] 定量数据
-> - **约束满足率**: 近乎 100%（抓手关闭约束）
-> - **任务成功率**: 90% 以上（满足安全约束前提下）
-> - **干预有效性**: 网络浅层（早期层）干预最为有效
-
-> [!success] 关键突破
-> 1. **线性观测器**: 通过训练简单线性分类器，从模型内部高维向量中提取机器人具体姿态和动作指令
-> 2. **最小干预控制器**: 基于 L2 范数最小化，只对模型内部表征施加最轻微推力，使其刚好满足约束条件
-> 3. **线性表征假设**: VLA 内部表征中线性编码了机器人的状态与动作信息
-> 4. **实时行为对齐**: 无需重新训练模型，在π0.5 和 OpenVLA 等架构上实现无需微调的实时行为对齐
+> - **推理延迟**: 150ms (vs π0.5 的 180ms)
+> - **零样本成功率**: 50% 跨具身迁移 (LIBERO 基准)
+> - **训练效率**: 5× 提升 (FAST 频域变换)
 ```
 
-**Arguments 卡片（论点卡）**：
+### Arguments Card — 论证卡
+
+用于**趋势分析、战略研判、综述总结**等需要综合多篇文献的内容。
+
 ```markdown
 ---
 uid: AIH-A-20260224-01
 card_type: Arguments
 domain: AI-Hardware
-tags: [Trend，EdgeInference，Market，2026]
-evidence_links: [[EAI-E-20260310-57]], [[AIH-E-20260226-08]]
+evidence_links: [[EAI-E-20260224-01]], [[AIH-E-20260223-05]]
 ---
 
-# AIH - 端侧 AI 部署：2026 年技术收敛
+# AIH - 端侧 AI 部署：2026 技术收敛信号
 
 > [!abstract] 核心论点
-> 2026 年上半年端侧 AI 部署出现三大收敛信号：1bit 量化实用化、消费级显卡可运行 7B 模型、推理成本降至云端 1/10。端侧 VLA 从"实验室玩具"转向"现场生产力"。
-
-> [!tip] 关键洞察
-> - **量化突破**: HBVLA 实现 1bit 后训练量化，内存降至 30%，性能损失<5%
-> - **部署简化**: 星海图 G0 实现 5 分钟部署，250M 参数，单 GPU 10Hz 推理
-> - **成本拐点**: RTX 5090 单卡 VLA 部署成本仅为云端方案的 1/10
+> 2026 年上半年显示三个收敛信号：1-bit 量化实用化、消费级 GPU 运行 7B 模型、推理成本降至云端 1/10...
 
 > [!example] 支撑证据
-> - **[[AIH-E-20260226-08]]**: HBVLA 证明 1bit PTQ 可行性
-> - **[[EAI-E-20260310-57]]**: 斯坦福 VLA 可控框架实现边缘安全部署
+> - **[[AIH-E-20260226-08]]**: HBVLA 1-bit 量化细节
+> - **[[AIH-E-20260213-05]]**: 星海 G0 端侧 VLA 工程实践
 ```
 
 ---
 
-## English Introduction
+## 预配置领域包
 
-**Transform any technical content into standardized knowledge cards for Obsidian.**
+### AI 研究包（默认）
 
-Report Factory is a universal knowledge card generator built for researchers and analysts tracking fast-moving fields. Define your own research domains, set custom keywords, and let AI automatically extract evidence from papers, articles, and RSS feeds.
+| 代码 | 领域 | 关键词 | 典型指标 |
+|------|------|--------|----------|
+| **EAI** | 具身智能 | Robot, VLA, Manipulator, Navigation, Grasp | 延迟、成功率、训练时长 |
+| **AIH** | AI 硬件 | NPU, Chip, Edge Computing, Quantization | TOPS、功耗、内存占用 |
+| **MM** | 多模态 | Vision-Language, Audio, Video, CLIP | CLIP Score、FID、准确率 |
+| **COG** | 认知 AI | Reasoning, Planning, CoT, Knowledge Graph | 推理步数、规划成功率 |
+| **AGT** | 智能体 | Agent, Multi-Agent, Tool Use, ReAct | 任务完成率、工具调用成功率 |
+
+### 生物医药包
+
+| 代码 | 领域 | 关键词 |
+|------|------|--------|
+| **DRUG** | 药物发现 | Drug Design, Molecular, Binding, Screening, ADMET |
+| **GENO** | 基因组学 | Sequencing, Genome, CRISPR, Gene Expression |
+| **MIMG** | 医学影像 | MRI, CT, Radiology, Pathology, Segmentation |
+| **CLIN** | 临床 AI | EHR, Diagnosis, Prognosis, Clinical Trial |
+
+### 气候科技包
+
+| 代码 | 领域 | 关键词 |
+|------|------|--------|
+| **REN** | 可再生能源 | Solar, Wind, Hydro, Energy Storage |
+| **CARB** | 碳捕获 | CCS, Direct Air Capture, Carbon Sequestration |
+| **BATT** | 电池技术 | Li-ion, Solid State, Energy Density, BMS |
+| **CLIM** | 气候建模 | Climate Simulation, Weather Prediction |
 
 ---
 
+## 核心功能
+
+### 智能领域检测
+
+基于关键词自动识别文章所属领域，支持多领域交叉内容。
+
+```
+输入: https://arxiv.org/abs/2602.11832
+检测: EAI (主要) + AIH (次要)
+关键词匹配: VLA, Edge Deployment, Quantization
+```
+
+### 去重机制
+
+- **URL/ID 匹配** —— 同一来源自动去重
+- **标题相似度检测** —— 85% 以上相似度触发警告
+- **内容指纹** —— 防止重复处理同一事件的不同报道
+
+### 质量门禁
+
+每张卡片必须通过 7 点检查：
+
+| 检查项 | 标准 |
+|--------|------|
+| 准入门槛 | 技术创新 OR 定量数据 OR 权威来源 |
+| 标题格式 | [主题]: 5-15 字 + [洞察]: 10-20 字 |
+| 定量数据 | Evidence 卡至少 3 个带上下文的指标 |
+| 标签格式 | 禁止特殊字符和空格 |
+| 来源链接 | 非空，优先原始论文/项目 URL |
+| 领域分类 | 自动验证关键词匹配 |
+| 去重检查 | 标题相似度 < 85% |
+
 ---
 
-## ✨ Features
+## 修改设置
 
-- **🎯 Custom Domains** — Define your own research domains with keywords (AI, Bio/Med, Climate Tech, or any field)
-- **🤖 Auto Domain Detection** — Intelligent routing based on your configured keywords
-- **📇 Dual Card Types** — Evidence (technical data) and Arguments (trend analysis)
-- **🔍 Deduplication** — URL/ID matching + 85% title similarity check
-- **✅ Quality Gate** — 7-point validation before card acceptance
-- **📊 PPT/Canvas Export** — McKinsey-style presentations + Obsidian Canvas visualizations
-- **📡 RSS Integration** — WeChat, arXiv, blog dashboard auto-harvesting
+通过对话即可修改配置，无需手动编辑文件：
+
+```
+"添加量子计算领域"
+"修改卡片输出路径"
+"更改质量阈值"
+"显示当前配置"
+```
 
 ---
 
-## 🚀 Quick Start
+## 自定义提取风格
 
-### Installation
+Skill 使用纯文本 prompt 文件控制内容提取方式。
+
+### 通过对话（推荐）
+
+直接告诉 Agent：
+- "提取时重点关注实验方法"
+- "多关注商业应用场景"
+- "用更简洁的语气写摘要"
+
+Agent 会自动更新 prompt。
+
+### 直接编辑（高级用户）
+
+编辑 `prompts/` 文件夹：
+
+- `extract-evidence.md` —— 技术数据提取方式
+- `extract-arguments.md` —— 趋势洞察提取方式
+- `generate-card.md` —— 卡片生成格式
+- `validate-card.md` —— 质量验证规则
+- `detect-domain.md` —— 领域检测逻辑
+
+这些都是纯文本指令，修改后下次处理即生效。
+
+---
+
+## 安装
+
+### Claude Code
 
 ```bash
-# Clone the repository
-git clone https://github.com/hoilex04/report-factory.git
-cd report-factory
-
-# Install dependencies (Python 3.10+)
-pip install -r requirements.txt
-
-# Initialize configuration
-python scripts/setup.py
+git clone https://github.com/hoilex04/report-factory.git ~/.claude/skills/report-factory
 ```
 
-### First Run
+### OpenClaw
 
 ```bash
-# Start domain setup (interactive)
-python -m report_factory setup
-
-# Or use Claude Code with the skill
-claude /setup-domains
-```
-
-### Basic Usage
-
-```bash
-# Process single article
-python -m report_factory process https://arxiv.org/abs/2602.12345
-
-# Batch harvest
-python -m report_factory harvest wechat
-python -m report_factory harvest arxiv
-
-# Analysis mode
-python -m report_factory analyze "Your research topic"
+clawhub install report-factory
+# 或手动安装
+git clone https://github.com/hoilex04/report-factory.git ~/skills/report-factory
 ```
 
 ---
 
-## 📦 Pre-configured Domain Packs
+## 系统要求
 
-### Pack 1: AI Research (Default)
+- Claude Code 或 OpenClaw
+- Obsidian（用于查看知识卡片）
+- 网络连接（用于获取 RSS 和网页内容）
 
-| Code | Domain | Keywords |
-|------|--------|----------|
-| **EAI** | Embodied AI | Robot, Manipulator, Locomotion, VLA, Grasp, Navigation |
-| **AIH** | AI Hardware | NPU, Chip, AI PC, Edge Computing, Hardware, Sensor |
-| **MM** | Multimodal | Vision-Language, Audio, Video, Cross-modal, CLIP |
-| **COG** | Cognitive | Reasoning, Planning, Memory, Knowledge Graph, CoT |
-| **AGT** | Agent | Autonomous Agent, Multi-Agent, Tool Use, ReAct |
-
-### Pack 2: Bio/Medical
-
-| Code | Domain | Keywords |
-|------|--------|----------|
-| **DRUG** | Drug Discovery | Drug Design, Molecular, Binding, Screening |
-| **GENO** | Genomics | Sequencing, Genome, CRISPR, Gene Expression |
-| **MIMG** | Medical Imaging | MRI, CT, Radiology, Pathology |
-| **CLIN** | Clinical AI | EHR, Diagnosis, Prognosis, Clinical Trial |
-
-### Pack 3: Climate Tech
-
-| Code | Domain | Keywords |
-|------|--------|----------|
-| **REN** | Renewable Energy | Solar, Wind, Hydro, Geothermal, Storage |
-| **CARB** | Carbon Capture | CCS, Direct Air Capture, Sequestration |
-| **BATT** | Battery | Li-ion, Solid State, Energy Density |
-| **CLIM** | Climate Modeling | Simulation, Weather Prediction, Risk |
+无需 API key —— 网页内容由本地脚本获取。
 
 ---
 
-## 📁 Project Structure
+## 工作原理
+
+```
+┌─────────────┐    ┌──────────────┐    ┌──────────────┐
+│   输入源     │ → │  处理管道     │ → │   输出卡片    │
+├─────────────┤    ├──────────────┤    ├──────────────┤
+│ • 单篇 URL  │    │ 1. 领域检测   │    │ Evidence 卡  │
+│ • RSS 订阅  │    │ 2. 内容抓取   │    │ Arguments 卡 │
+│ • 本地文件  │    │ 3. 去重检查   │    │              │
+│             │    │ 4. 数据提取   │    │ Canvas 图谱  │
+│             │    │ 5. 质量验证   │    │ PPT 报告     │
+│             │    │ 6. 卡片生成   │    │              │
+└─────────────┘    └──────────────┘    └──────────────┘
+```
+
+1. **输入** —— 单篇 URL、RSS 订阅、本地文件
+2. **领域检测** —— 基于关键词自动识别研究领域
+3. **内容抓取** —— 提取正文、元数据、引用信息
+4. **去重检查** —— URL/标题相似度双重检查
+5. **数据提取** —— LLM 提取关键指标和洞察
+6. **质量验证** —— 7 点检查确保卡片质量
+7. **卡片生成** —— 输出标准化 Markdown 卡片
+8. **图谱构建** —— 自动生成 Obsidian Canvas 关联图谱
+
+---
+
+## 项目结构
 
 ```
 report-factory/
-├── README.md                 # This file
-├── LICENSE                   # MIT License
-├── requirements.txt          # Python dependencies
-├── setup.py                  # Installation script
+├── README.md                 # 项目说明
+├── SKILL.md                  # Claude Skill 定义
+├── requirements.txt          # Python 依赖
 ├── config/
-│   └── domain-packs.json     # Pre-configured domain packs
-├── scripts/
-│   ├── setup.py              # Interactive setup wizard
-│   ├── setup.js              # Claude Code setup
-│   └── validate.py           # Configuration validator
-├── templates/
-│   ├── evidence.md           # Evidence card template
-│   └── arguments.md          # Arguments card template
-├── examples/
-│   ├── cards/                # Sample output cards
-│   └── canvas/               # Sample Canvas files
-└── src/
-    └── report_factory/       # Main Python package
-        ├── __init__.py
-        ├── config.py         # Configuration handling
-        ├── detector.py       # Domain detection
-        ├── fetcher.py        # Content fetching
-        ├── extractor.py      # Data extraction
-        ├── validator.py      # Quality gate
-        └── exporter.py       # PPT/Canvas export
+│   └── domain-packs.json     # 预配置领域包
+├── prompts/                  # LLM 提示词
+│   ├── extract-evidence.md
+│   ├── extract-arguments.md
+│   ├── generate-card.md
+│   ├── validate-card.md
+│   └── detect-domain.md
+├── templates/                # 卡片模板
+│   ├── evidence.md
+│   └── arguments.md
+├── scripts/                  # 辅助脚本
+│   ├── fetch-url.py
+│   ├── rss-harvest.py
+│   └── integrations/
+│       └── wewerss/          # 微信 RSS 集成脚本
+└── examples/                 # 示例卡片
+    ├── sample-evidence-card.md
+    └── sample-arguments-card.md
 ```
 
 ---
 
-## ⚙️ Configuration
+## 配置说明
 
-### Config File Location
-
-```
-~/.report-factory/
-├── config.json          # User preferences and domains
-├── paths.json           # Custom paths (override defaults)
-└── prompts/             # Custom extraction prompts
-```
-
-### Example config.json
+用户配置存储在 `~/.report-factory/config.json`：
 
 ```json
 {
@@ -279,207 +318,110 @@ report-factory/
   "domains": {
     "EAI": {
       "name": "Embodied AI",
-      "keywords": ["Robot", "Manipulator", "VLA"],
+      "keywords": ["Robot", "VLA", "Manipulation", "Grasp"],
       "color": "#0066CC",
-      "metrics": ["latency", "success_rate"]
+      "metrics": ["latency", "success_rate", "training_time"]
+    },
+    "AIH": {
+      "name": "AI Hardware",
+      "keywords": ["NPU", "Chip", "Edge Computing", "Quantization"],
+      "color": "#FF6600",
+      "metrics": ["TOPS", "power", "memory"]
     }
   },
-  "priority": ["AIH", "EAI", "MM"],
+  "priority": ["AIH", "EAI", "AGT", "COG", "MM"],
   "autoHarvest": {
     "wechat": true,
-    "arxiv": true
+    "arxiv": true,
+    "blogs": false
   },
+  "harvestDays": 7,
+  "similarityThreshold": 0.85,
   "paths": {
-    "cards": "D:\\Cards",
-    "index": "D:\\master_index.json"
+    "cards": "~/Obsidian/Cards",
+    "canvas": "~/Obsidian/Canvas",
+    "index": "~/master_index.json"
   }
 }
 ```
 
 ---
 
-## 📝 Card Templates
+## wewerss 微信 RSS 集成
 
-### Evidence Card
+本项目提供独立的 wewerss 集成脚本，位于 [`scripts/integrations/wewerss/`](scripts/integrations/wewerss/)：
 
-```markdown
----
-uid: EAI-E-20260224-01
-card_type: Evidence
-domain: Embodied-AI
-tags: [VLA, FlowMatching, Institution]
-date: 2026-02-24
-source: https://arxiv.org/abs/2602.xxxxx
----
+| 脚本 | 用途 |
+|------|------|
+| `fetch_weixin.py` | 轻量级 urllib 文章抓取 |
+| `fetch_weixin_smart.py` | 智能降级（urllib → Playwright）|
+| `harvest_weixin_rss.py` | 从 wewerss Atom feed 收割近期文章 |
+| `morning_harvest.py` | 每日早间 arXiv 收割 + 提醒补充微信/飞书链接 |
+| `inbox_harvester.py` | 从 Inbox.md 提取待处理链接 |
 
-# EAI - Spirit v1.5: First Chinese Open-Source VLA Exceeding π0.5
-
-> [!abstract] Core Insight
-> Qianxun Intelligence releases Spirit v1.5, first Chinese open-source VLA
-> exceeding π0.5 on Flow Matching architecture. SOTA in zero-shot generalization.
-
-> [!note] Quantitative Data
-> - **Inference Latency**: 150ms (vs π0.5's 180ms)
-> - **Zero-shot Success**: 50% cross-embodiment
-> - **Training Efficiency**: 5× improvement
-```
-
-### Arguments Card
-
-```markdown
----
-uid: AIH-A-20260224-01
-card_type: Arguments
-domain: AI-Hardware
-tags: [Trend, EdgeInference]
-evidence_links: [[EAI-E-20260224-01]]
----
-
-# AIH - Edge AI Deployment: 2026 Technology Convergence
-
-> [!abstract] Core Argument
-> H1 2026 shows three convergence signals: 1-bit quantization, consumer GPUs
-> running 7B models, inference cost at 1/10 of cloud.
-```
+使用前请先部署 [wewerss](https://github.com/cooderl/wewe-rss) 并设置环境变量 `WEWE_RSS_ENDPOINT`（默认 `http://localhost:4000/feeds/all.atom`）。
 
 ---
 
-## 🛠️ CLI Commands
+## 输出示例
 
-| Command | Description |
-|---------|-------------|
-| `setup` | Interactive domain setup wizard |
-| `process <URL>` | Process single article/paper |
-| `harvest <source>` | Batch harvest (wechat/arxiv/inbox) |
-| `analyze "<topic>"` | Hypothesis-driven analysis |
-| `show-domains` | View current configuration |
-| `add-domain <code> "<keywords>"` | Add new domain |
-| `remove-domain <code>` | Remove domain |
-| `validate` | Check configuration validity |
+查看示例卡片：
+
+- [Evidence Card 示例](examples/sample-evidence-card.md)
+- [Arguments Card 示例](examples/sample-arguments-card.md)
 
 ---
 
-## 🔌 Integrations
+## 隐私与数据安全
 
-### WeChat RSS (wewerss)
-
-Using [wewerss](https://github.com/cooderl/wewe-rss) to build WeChat RSS feed:
-
-```bash
-# Your wewerss instance endpoint
-# Example: http://localhost:4000/feeds/all.atom
-```
-
-**Ready-to-use scripts** are located in [`scripts/integrations/wewerss/`](scripts/integrations/wewerss/):
-
-| Script | Purpose |
-|--------|---------|
-| `fetch_weixin.py` | Basic article fetcher (urllib only) |
-| `fetch_weixin_smart.py` | Smart fetcher with Playwright fallback |
-| `harvest_weixin_rss.py` | Harvest recent articles from wewerss Atom feed |
-| `morning_harvest.py` | Daily arXiv + remind WeChat/Feishu links |
-| `inbox_harvester.py` | Extract pending links from `Inbox.md` |
-
-**Config:** Update `config.json` with your wewerss endpoint:
-```json
-{
-  "autoHarvest": {
-    "wechat": true
-  },
-  "wechatEndpoint": "http://localhost:4000/feeds/all.atom"
-}
-```
-
-### Obsidian RSS Dashboard
-
-Edit `.obsidian/plugins/obsidian-rss-dashboard/data.json`
-
-### arXiv
-
-Auto-generated: `https://huggingface.co/papers/month/YYYY-MM`
+- **数据本地存储** —— 所有卡片保存在你自己的 Obsidian 中
+- **无需 API key** —— 网页内容通过本地脚本获取
+- **配置本地保存** —— 用户偏好存储在 `~/.report-factory/`
+- **只读取公开内容** —— 处理公开可访问的网页和 RSS
+- **你的知识图谱属于你** —— 随时可以导出、迁移
 
 ---
 
-## 🧪 Running Tests
+## 贡献
 
-```bash
-# Install test dependencies
-pip install -r requirements-dev.txt
+欢迎贡献新的领域包！查看 [CONTRIBUTING.md](CONTRIBUTING.md) 了解如何：
 
-# Run tests
-pytest tests/
+- 提交新的领域包
+- 改进提取提示词
+- 修复 bug
 
-# Run with coverage
-pytest --cov=report_factory tests/
-```
+### 社区领域包
 
----
-
-## 🤝 Contributing
-
-### Adding a Domain Pack
-
-1. Create `config/domain-packs/<pack-name>.json`
-2. Add domain definitions with keywords
-3. Test with sample articles
-4. Submit PR
-
-Example:
-```json
-{
-  "name": "Quantum Computing",
-  "domains": {
-    "QC": {
-      "name": "Quantum Computing",
-      "keywords": ["Qubit", "Entanglement", "Quantum Gate"]
-    }
-  }
-}
-```
-
-### Development Workflow
-
-```bash
-# Fork and clone
-git clone https://github.com/hoilex04/report-factory.git
-
-# Create branch
-git checkout -b feature/your-feature
-
-# Make changes and test
-git commit -m "Add your feature"
-
-# Push and PR
-git push origin feature/your-feature
-```
+| 领域包 | 贡献者 | 领域数 |
+|--------|--------|--------|
+| AI Research | 官方 | 5 |
+| Bio/Medical | 官方 | 4 |
+| Climate Tech | 官方 | 4 |
+| 量子计算 | _你的名字？_ | _提交 PR_ |
+| 金融科技 | _你的名字？_ | _提交 PR_ |
 
 ---
 
-## 📄 License
+## 致谢
 
-MIT License — see [LICENSE](LICENSE) for details.
+灵感来源于：
 
----
-
-## 🙏 Acknowledgments
-
-- [follow-builders](https://github.com/zarazhangrui/follow-builders) — Content aggregation patterns
-- [Obsidian](https://obsidian.md) — Knowledge management platform
-- [McKinsey](https://www.mckinsey.com) — Strategic analysis frameworks
+- [follow-builders](https://github.com/zarazhangrui/follow-builders) —— AI 内容聚合模式
+- [Obsidian](https://obsidian.md) —— 知识管理平台
+- [Zettelkasten](https://zettelkasten.de) —— 卡片盒笔记法
 
 ---
 
-## 📬 Support
+## 许可证
 
-- **Issues**: [GitHub Issues](https://github.com/hoilex04/report-factory/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/hoilex04/report-factory/discussions)
+MIT License —— 详见 [LICENSE](LICENSE) 文件
 
 ---
 
-## 🗺️ Roadmap
+<div align="center">
 
-- [ ] Web UI for configuration
-- [ ] More domain packs (Neuroscience, Finance, Law)
-- [ ] Multi-language support (Chinese, Spanish)
-- [ ] Plugin for Obsidian mobile
-- [ ] API for programmatic access
+**用 Report Factory，把信息流转化为知识资产**
+
+[快速开始](#快速开始) • [功能特性](#核心功能) • [示例卡片](examples/)
+
+</div>

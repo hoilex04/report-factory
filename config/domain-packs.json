@@ -1,143 +1,160 @@
 {
-  "version": "2.0",
-  "packs": {
-    "ai-research": {
+  "domain_packs": {
+    "ai_research": {
       "name": "AI Research",
-      "description": "Default pack for AI researchers tracking embodied AI, hardware, multimodal, cognitive, and agent technologies",
+      "description": "Artificial Intelligence research domains",
       "domains": {
         "EAI": {
           "name": "Embodied AI",
+          "description": "Robotics, manipulation, and physical AI systems",
           "keywords": [
-            "Robot", "Manipulator", "Locomotion", "Embodied AI", "Grasp",
-            "Navigation", "VLA", "Control", "Manipulation", "Humanoid"
+            "Robot", "Manipulator", "VLA", "Vision-Language-Action",
+            "Grasp", "Navigation", "Locomotion", "Embodiment",
+            "Physical AI", "Humanoid", "Bipedal", "Mobile Robot"
           ],
           "color": "#0066CC",
-          "metrics": ["latency", "success_rate", "training_time", "zero_shot_pct"]
+          "metrics": ["latency", "success_rate", "throughput", "efficiency"]
         },
         "AIH": {
           "name": "AI Hardware",
+          "description": "AI chips, edge computing, and hardware optimization",
           "keywords": [
-            "NPU", "Chip", "AI PC", "Wearable", "Edge Computing", "Hardware",
-            "Sensor", "ASIC", "FPGA", "Quantization", "Inference"
+            "NPU", "Chip", "AI PC", "Edge Computing", "Hardware",
+            "Sensor", "Quantization", "On-device", "Inference optimization",
+            "RTX", "GPU", "TPU", "Memory bandwidth", "Power efficiency"
           ],
           "color": "#FF6600",
-          "metrics": ["TOPS", "power_W", "memory_GB", "quantization_bits"]
+          "metrics": ["fps", "latency", "power", "memory"]
         },
         "MM": {
           "name": "Multimodal",
+          "description": "Vision-language, audio, and cross-modal learning",
           "keywords": [
-            "Vision-Language", "Audio", "Video Understanding", "Image Generation",
-            "Cross-modal", "Text-to-Image", "Multimodal Fusion", "CLIP", "Flamingo"
+            "Vision-Language", "Audio", "Video", "Cross-modal",
+            "CLIP", "Multimodal", "Speech", "Sound", "Image-text",
+            "Video understanding", "Audio-language"
           ],
           "color": "#9933CC",
-          "metrics": ["CLIP_score", "FID", "accuracy", "modality_count"]
+          "metrics": ["accuracy", "retrieval_score", "generation_quality"]
         },
         "COG": {
           "name": "Cognitive AI",
+          "description": "Reasoning, planning, and knowledge systems",
           "keywords": [
-            "Reasoning", "Planning", "Memory", "Knowledge Graph", "Symbolic AI",
-            "Neuro-Symbolic", "Chain-of-Thought", "Tree-of-Thought", "CoT"
+            "Reasoning", "Planning", "Memory", "Knowledge Graph",
+            "CoT", "Chain-of-Thought", "Logic", "Problem-solving",
+            "Inference", "Deduction", "Causal reasoning"
           ],
-          "color": "#339933",
-          "metrics": ["reasoning_steps", "planning_success", "memory_capacity"]
+          "color": "#009933",
+          "metrics": ["accuracy", "coverage", "reasoning_steps"]
         },
         "AGT": {
-          "name": "AI Agents",
+          "name": "Agent",
+          "description": "Autonomous agents and multi-agent systems",
           "keywords": [
-            "Autonomous Agent", "Multi-Agent", "Tool Use", "ReAct", "LangChain",
-            "AutoGPT", "Function Calling", "Agent Framework", "RAG"
+            "Agent", "Autonomous Agent", "Multi-Agent", "Tool Use",
+            "ReAct", "Function Calling", "AI Agent", "AutoGPT",
+            "Task planning", "API calling", "MCP"
           ],
-          "color": "#CC3333",
-          "metrics": ["task_completion", "tool_success", "collaboration_efficiency"]
+          "color": "#CC0066",
+          "metrics": ["task_success", "tool_accuracy", "efficiency"]
         }
-      },
-      "priority": ["AIH", "EAI", "AGT", "COG", "MM"]
+      }
     },
-    "bio-medical": {
+    "bio_medical": {
       "name": "Bio/Medical",
-      "description": "For researchers tracking AI applications in drug discovery, genomics, medical imaging, and clinical AI",
+      "description": "Biomedical and healthcare research",
       "domains": {
         "DRUG": {
           "name": "Drug Discovery",
+          "description": "Computational drug design and screening",
           "keywords": [
-            "Drug Design", "Molecular", "Binding Affinity", "Screening",
-            "ADMET", "Virtual Screening", "De Novo Design"
+            "Drug Design", "Molecular", "Binding", "Screening",
+            "Pharmacology", "Therapeutics", "Drug discovery",
+            "Molecular docking", "Virtual screening"
           ],
-          "color": "#0099CC",
-          "metrics": ["binding_affinity_nM", "IC50", "ADMET_score", "docking_score"]
+          "color": "#00CCCC",
+          "metrics": ["binding_affinity", "selectivity", "toxicity"]
         },
         "GENO": {
           "name": "Genomics",
+          "description": "Genomic analysis and editing",
           "keywords": [
             "Sequencing", "Genome", "CRISPR", "Gene Expression",
-            "RNA-seq", "Variant Calling", "Epigenetics"
+            "Genomics", "DNA", "RNA", "Single-cell", "Transcriptomics"
           ],
-          "color": "#00CC99",
-          "metrics": ["sequencing_depth", "accuracy", "coverage", "F1_score"]
+          "color": "#CC9900",
+          "metrics": ["accuracy", "coverage", "variant_detection"]
         },
         "MIMG": {
           "name": "Medical Imaging",
+          "description": "Medical image analysis and diagnosis",
           "keywords": [
-            "MRI", "CT", "Radiology", "Pathology", "Segmentation",
-            "Detection", "Classification", "Ultrasound"
+            "MRI", "CT", "Radiology", "Pathology", "Ultrasound",
+            "Medical scan", "Medical imaging", "Diagnostic imaging"
           ],
-          "color": "#CC9900",
-          "metrics": ["dice_score", "sensitivity", "specificity", "AUC"]
+          "color": "#FF3399",
+          "metrics": ["dice_score", "sensitivity", "specificity"]
         },
         "CLIN": {
           "name": "Clinical AI",
+          "description": "Clinical decision support and healthcare AI",
           "keywords": [
             "EHR", "Diagnosis", "Prognosis", "Clinical Trial",
-            "Risk Prediction", "Treatment Recommendation"
+            "Healthcare AI", "Patient data", "Clinical decision support"
           ],
-          "color": "#9933CC",
-          "metrics": ["accuracy", "precision", "recall", "calibration"]
+          "color": "#33CCFF",
+          "metrics": ["auc_roc", "sensitivity", "specificity"]
         }
-      },
-      "priority": ["DRUG", "MIMG", "CLIN", "GENO"]
+      }
     },
-    "climate-tech": {
+    "climate_tech": {
       "name": "Climate Tech",
-      "description": "For tracking renewable energy, carbon capture, battery technology, and climate modeling",
+      "description": "Climate technology and sustainability",
       "domains": {
         "REN": {
           "name": "Renewable Energy",
+          "description": "Solar, wind, and clean energy technologies",
           "keywords": [
-            "Solar", "Wind", "Hydro", "Geothermal", "Energy Storage",
-            "Photovoltaic", "Turbine"
+            "Solar", "Wind", "Hydro", "Geothermal", "Storage",
+            "Clean energy", "Renewable", "Photovoltaic", "Turbine"
           ],
-          "color": "#FFCC00",
-          "metrics": ["efficiency_pct", "capacity_MW", "LCOE", "capacity_factor"]
+          "color": "#66CC33",
+          "metrics": ["efficiency", "capacity_factor", "cost_per_mwh"]
         },
         "CARB": {
           "name": "Carbon Capture",
+          "description": "Carbon capture and sequestration",
           "keywords": [
-            "CCS", "Direct Air Capture", "Carbon Sequestration",
-            "CO2 Capture", "Mineralization"
-          ],
-          "color": "#669933",
-          "metrics": ["capture_rate", "cost_per_ton", "capacity_tpy"]
-        },
-        "BATT": {
-          "name": "Battery Technology",
-          "keywords": [
-            "Li-ion", "Solid State", "Energy Density", "BMS",
-            "Cathode", "Anode", "Electrolyte"
+            "CCS", "Direct Air Capture", "Sequestration",
+            "Carbon removal", "CCUS", "Carbon negative"
           ],
           "color": "#3366CC",
-          "metrics": ["energy_density_Wh_kg", "cycle_life", "charge_rate", "cost_kWh"]
+          "metrics": ["capture_rate", "cost_per_ton", "energy_penalty"]
+        },
+        "BATT": {
+          "name": "Battery",
+          "description": "Battery technology and energy storage",
+          "keywords": [
+            "Li-ion", "Solid State", "Energy Density",
+            "Battery tech", "Energy storage", "Cathode", "Anode"
+          ],
+          "color": "#CC3366",
+          "metrics": ["energy_density", "cycle_life", "charging_rate"]
         },
         "CLIM": {
           "name": "Climate Modeling",
+          "description": "Climate simulation and prediction",
           "keywords": [
-            "Climate Simulation", "Weather Prediction", "Risk Model",
-            "Earth System", "Downscaling"
+            "Simulation", "Weather Prediction", "Climate risk",
+            "Forecasting", "Climate model", "Earth system"
           ],
-          "color": "#339999",
-          "metrics": ["resolution_km", "accuracy", "lead_time", "RMSE"]
+          "color": "#66CCCC",
+          "metrics": ["forecast_accuracy", "spatial_resolution", "temporal_range"]
         }
-      },
-      "priority": ["BATT", "REN", "CARB", "CLIM"]
+      }
     }
-  }
+  },
+  "default_pack": "ai_research",
+  "version": "2.0"
 }
