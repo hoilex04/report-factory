@@ -361,14 +361,24 @@ evidence_links: [[EAI-E-20260224-01]]
 
 ## 🔌 Integrations
 
-### WeChat RSS
+### WeChat RSS (wewerss)
 
-Using `wewerss` to build WeChat RSS feed:
+Using [wewerss](https://github.com/cooderl/wewe-rss) to build WeChat RSS feed:
 
 ```bash
 # Your wewerss instance endpoint
 # Example: http://localhost:4000/feeds/all.atom
 ```
+
+**Ready-to-use scripts** are located in [`scripts/integrations/wewerss/`](scripts/integrations/wewerss/):
+
+| Script | Purpose |
+|--------|---------|
+| `fetch_weixin.py` | Basic article fetcher (urllib only) |
+| `fetch_weixin_smart.py` | Smart fetcher with Playwright fallback |
+| `harvest_weixin_rss.py` | Harvest recent articles from wewerss Atom feed |
+| `morning_harvest.py` | Daily arXiv + remind WeChat/Feishu links |
+| `inbox_harvester.py` | Extract pending links from `Inbox.md` |
 
 **Config:** Update `config.json` with your wewerss endpoint:
 ```json
