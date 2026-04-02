@@ -1,0 +1,31 @@
+{
+  "_comment": "Report Factory Daily Reviewer 配置模板",
+  "_instruction": "1. 复制此文件为 config.json 2. 填入你的实际配置",
+
+  "vault_path": "/path/to/your/Obsidian/Vault",
+  "cards_path": "/path/to/your/Obsidian/Vault/Cards",
+  "evidence_path": "/path/to/your/Obsidian/Vault/Cards/Evidence",
+  "arguments_path": "/path/to/your/Obsidian/Vault/Cards/Arguments",
+
+  "email": {
+    "to": "your-email@example.com",
+    "smtp_host": "smtp.gmail.com",
+    "smtp_port": 587,
+    "use_tls": true,
+    "use_ssl": false,
+    "username": "your-sender-email@example.com",
+    "password": "your-app-password-or-authorization-code"
+  },
+
+  "review_criteria": {
+    "min_quantitative_data": 2,
+    "grade_threshold_a": 5,
+    "grade_threshold_b": 3
+  },
+
+  "schedule": {
+    "enabled": true,
+    "time": "18:30",
+    "timezone": "Asia/Shanghai"
+  }
+}

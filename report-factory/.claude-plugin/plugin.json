@@ -1,0 +1,52 @@
+{
+  "name": "report-factory",
+  "version": "2.0.0",
+  "description": "Universal Knowledge Card Factory — Transform articles/papers into standardized Obsidian cards",
+  "author": "Your Name",
+  "license": "MIT",
+  "type": "skill",
+  "entry_point": "skill.md",
+  "user_invocable": true,
+  "commands": [
+    {
+      "name": "setup-domains",
+      "description": "Initialize domain configuration for first-time users"
+    },
+    {
+      "name": "process",
+      "description": "Process a single article or paper URL"
+    },
+    {
+      "name": "harvest",
+      "description": "Batch process from RSS feeds (wechat/arxiv/inbox)"
+    },
+    {
+      "name": "analyze",
+      "description": "Research mode with hypothesis-driven analysis"
+    },
+    {
+      "name": "show-domains",
+      "description": "Display current domain configuration"
+    },
+    {
+      "name": "add-domain",
+      "description": "Add a new custom domain"
+    },
+    {
+      "name": "remove-domain",
+      "description": "Remove an existing domain"
+    }
+  ],
+  "categories": ["knowledge-management", "research", "productivity"],
+  "tags": ["obsidian", "cards", "research", "knowledge-base", "rss"],
+  "requirements": [
+    "Claude Code",
+    "Obsidian (optional, for card viewing)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/report-factory"
+  },
+  "homepage": "https://github.com/your-username/report-factory",
+  "documentation": "./skill.md"
+}
