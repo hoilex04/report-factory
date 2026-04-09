@@ -36,8 +36,8 @@ class Config:
             "language": "en",
             "outputFormat": ["card", "canvas"],
             "paths": {
-                "cards": str(Path.home() / "Cards"),
-                "index": str(Path.home() / "master_index.json")
+                "cards": "D:\\003_Resource\\04_Obsidian\\Atomic-card",
+                "index": "D:\\003_Resource\\04_Obsidian\\Atomic-card\\master_index.json"
             }
         }
 
